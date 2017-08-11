@@ -15,10 +15,10 @@ var c = new Crawler({
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
             var move = {}
-            var moveTile = $(".bd3r .co_area2 .title_all h1").text()
+            var moveTile = $(".contain .bd2 .bd3 .co_area2 .title_all h1").text()
             var moveCover = ""
             var moveGlice = []
-            $(".bd3r .co_area2 .co_content8 #Zoom img").each(function (index, element) {
+            $(".contain .bd2 .bd3 .co_area2 .co_content8 #Zoom img").each(function (index, element) {
                 var $element = $(element)
                 if (index == 0) {
                     moveCover = $element.attr("src")
@@ -26,7 +26,7 @@ var c = new Crawler({
                     moveGlice.push($element.attr("src"))
                 }
             })
-            var moveUlr = $(".bd3r .co_area2 .co_content8 #Zoom table tbody a").text()
+            var moveUlr = $(".contain .bd2 .bd3 .co_area2 .co_content8 #Zoom table tbody a").text()
             move.moveTitle = moveTile
             move.moveCover = moveCover
             move.moveGlice = moveGlice
@@ -51,7 +51,7 @@ c.on('drain', function () {
 
 // Queue just one URL, with default callback
 c.queue({
-    uri: 'http://www.dytt8.net/',
+    uri: 'http://www.dy2018.com/',
     callback: function (error, res, done) {//自己也是可以有回调的
         if (error) {
             console.log(error);
@@ -59,11 +59,12 @@ c.queue({
             var $ = res.$;
             // $ is Cheerio by default
             //a lean implementation of core jQuery designed specifically for the server
-            $(".bd3r .bd3rl .co_area2 a").each(function (index, element) {
+            $(".contain .bd2 .co_area2 .co_content222 a").each(function (index, element) {
                 var $element = $(element)
-                if ($element.attr("href").match('/html/\\w{4}/\\w{4}/\\d{1,8}/\\d{1,5}\.html')) {
-                    var urlstr = url.resolve('http://www.dytt8.net/', $element.attr("href"))
+                if ($element.attr("href").match('/i/\\d{1,6}\\.html')) {
+                    var urlstr = url.resolve('http://www.dy2018.com/', $element.attr("href"))
                     /*初始种子url提取*/
+                    // console.log(urlstr)
                     repUrls.push(urlstr)
                 }
             })
