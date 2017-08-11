@@ -1,0 +1,18 @@
+{
+  "name": "zhang",
+  "version": "1.0.0",
+  "description": "clawer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brzhang",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "crawler": "^1.0.5",
+    "superagent": "^3.5.2",
+    "superagent-proxy": "^1.0.2"
+  }
+}
